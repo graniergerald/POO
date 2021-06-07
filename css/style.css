@@ -1,0 +1,27 @@
+/* VARIABLES */
+:root {
+  --primary-color: #00539cff;
+  --secondary-color: #eea47fff;
+  --bck-color: url(../img/bck_white.jpg);
+}
+
+/*----------------------------------*/
+
+body {
+  padding-right: 140px;
+  padding-left: 140px;
+  font-family: "Roboto", sans-serif;
+  background-image: var(--bck-color);
+}
+
+h1 {
+  color: var(--primary-color);
+}
+
+header {
+  text-align: center;
+  height: 150px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
