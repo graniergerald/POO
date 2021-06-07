@@ -8,52 +8,61 @@
 
 
     }
+
+    class Vehicule {
+
+    }
     // construct voiture, création automatique.
-    class VoitureConstruct { 
+    class VoitureConstruct extends Vehicule { 
 
-        private $Couleur ="";
-        private $NbrPorte = 0;
-        private  $Puissance = 1;
-        private $Carburant = "";
+        private $_couleur ="";
+        private $_nbrporte = 0;
+        private  $_puissance = 1;
+        private $_carburant = "";
+        private $_marque = "";
 
-        public function __construct($Couleur, $NbrPorte, $Puissance, $Carburant) {
-            $this->_couleur = $Couleur;
-            $this->_nbrporte = $NbrPorte;
-            $this->_puissance = $Puissance;
-            $this->_carburant = $Carburant;
+        private static $ArrayMarqueVoiture = array("Renault", "Peugeot", "Audi", "BMW", "Mercedes" );
+        private static $ArrayCouleur = array("Rouge", "Jaune", "Orange", "Bleu", "Vert", "Violet" );
+        private static $ArrayCarburant = array("Sans-Plomb95", "Sans-Plomb98", "BioEthanol", "GPL", "Gazole", "Electrique");
+ 
+
+        public function __construct() {
+            $this->_marque = self::$ArrayMarqueVoiture[array_rand( self::$ArrayMarqueVoiture, 1)];
+            
+            $this->_couleur = self::$ArrayCouleur[array_rand( self::$ArrayCouleur, 1)];
+        
+            $this->_nbrporte = random_int( 3, 5);
+        
+            $this->_puissance = random_int( 25 , 350 );
+            
+            $this->_carburant = self::$ArrayCarburant[array_rand( self::$ArrayCarburant, 1)];
+        
         }
 
         public function getHtmlRepresentation() {
             return '<div class="ObjetVoiture">
-                    <h1> Voiture Random </h1>
-                        <ul>
+                            <h2> Voiture Random </h2>
                             <li> La couleur de la voiture est : '.$this->_couleur. '</li>                         
                             <li> Le nombre de porte de la voiture est : '.$this->_nbrporte. '</li>                         
                             <li> La puissance de la voiture est : '.$this->_puissance. 'ch</li>                         
                             <li> Le carburant de la voiture est : '.$this->_carburant. '</li>    
-                        </ul>
-                    </div>                         
+                    </div>                       
             ';
         }
+
+        // interface svg {
+
+        //     function getSvgRepresentation ( $y, $x) {
+                
+        //     }
+        // }
     
     }
 
-    //essai randomiser les parametre pour la création de voiture.
 
-    $ArrayPrenomVoiture = array("Renault", "Peugeot", "Audi", "BMW", "Mercedes" );
-    $RandomPrenomVoiture = $ArrayPrenomVoiture[array_rand( $ArrayPrenomVoiture, 1)];
+    class Camion extends Vehicule {
 
-    $ArrayCouleur = array("Rouge", "Jaune", "Orange", "Bleu", "Vert", "Violet" );
-    $RandomCouleur = $ArrayCouleur[array_rand( $ArrayCouleur, 1)];
-
-    $RandomPorte = random_int( 3, 5);
-
-    $RandomPuissance = random_int( 25 , 350 );
-
-    $ArrayCarburant = array("Sans-Plomb95", "Sans-Plomb98", "BioEthanol", "GPL", "Gazole", "Electrique");
-    $RandomCarburant = $ArrayCarburant[array_rand($ArrayCarburant, 1)];
-
-    // ($RandomCouleur, $RandomPorte, $RandomPuissance, $RandomCarburant)
+    }
 
  
 ?>

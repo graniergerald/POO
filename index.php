@@ -11,31 +11,42 @@
 <body>
     <?php   require_once "VoitureVide.php";
             $voiture1 = new voiture();  // Premier objet mais les attribut sont static c'est pas bon
-            $voiture2 = new voitureConstruct("Rouge", 3, 111, "Gazoil");
-            $voiture3 = new voitureConstruct($RandomCouleur, $RandomPorte, $RandomPuissance, $RandomCarburant); //2eme objet avec la function construct 
-            $voiture4 = new voitureConstruct($RandomCouleur, $RandomPorte, $RandomPuissance, $RandomCarburant); 
-            $voiture5 = new voitureConstruct($RandomCouleur, $RandomPorte, $RandomPuissance, $RandomCarburant); 
-            $voiture6 = new voitureConstruct($RandomCouleur, $RandomPorte, $RandomPuissance, $RandomCarburant); 
+            $voiture2 = new voitureConstruct();
+            $voiture3 = new voitureConstruct(); //2eme objet avec la function construct 
+            $voiture4 = new voitureConstruct(); 
+            $voiture5 = new voitureConstruct(); 
+            $voiture6 = new voitureConstruct(); 
+            $voiture7 = new voitureConstruct(); 
     ?>
     <header>
         <h1>POO Premier cours</h1>
     </header>
 
-    <div class="FirstVoiture">
-        <h1>Mes belles voitures</h1>
-        <pre>
-            <p> On affiche la variable RandomCouleur qui randomise la couleur comme sa nom l'indique : <?php echo $RandomCouleur?> </p>
+    <div class="MesBellesVoitures">
+        <div class="FirstP">
+
+            <h1>Mes belles voitures</h1>
+            <p> On affiche la variable RandomCouleur qui randomise la couleur comme son nom l'indique : <?php echo $RandomCouleur?> </p>
             <p> On fais pareil avec RandomPorte : <?php echo $RandomPorte ?> </p>
             <p> Variable RandomPuissance : <?php echo $RandomPuissance ?> </p>
             <p> Variable RandomCarburant : <?php echo $RandomCarburant ?> </p>
-            
+        </div>
+
+        <h1>Objet Voiture</h1>
+        <p>On crée 6 voitures sous forme d'objet. On randomise chaque attribut et on l'affiche sous forme de carte.</p>
+        <div class="container">
+
             <?php echo $voiture2->getHtmlRepresentation(); ?>
             <?php echo $voiture3->getHtmlRepresentation(); ?>
             <?php echo $voiture4->getHtmlRepresentation(); ?>
             <?php echo $voiture5->getHtmlRepresentation(); ?>
             <?php echo $voiture6->getHtmlRepresentation(); ?>
-            
-        </pre>
+            <?php echo $voiture7->getHtmlRepresentation(); ?>
+        </div>
+    </div>
+
+    <div class="ObjetIntoSVG">
+        <h1></h1>
     </div>
 
     
